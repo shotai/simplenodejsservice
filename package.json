@@ -1,0 +1,22 @@
+{
+  "name": "simplenodejsservice",
+  "version": "1.0.0",
+  "description": "simple node js api service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shotai/simplenodejsservice.git"
+  },
+  "author": "mg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shotai/simplenodejsservice/issues"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  }
+}
