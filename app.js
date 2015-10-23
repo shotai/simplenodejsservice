@@ -7,9 +7,14 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('combined'));
 
-app.get('/getRequest',function(req, res){
-	console.log("get request")
-	res.send('get request from ' + req.headers.host)
+app.get('/getRequest1',function(req, res){
+	console.log("get request1")
+	res.send('get request1 from ' + req.headers.host)
+});
+
+app.get('/getRequest2',function(req, res){
+	console.log("get request2")
+	res.send('get request2 from ' + req.headers.host)
 });
 
 var httpListener = http.createServer(app);
