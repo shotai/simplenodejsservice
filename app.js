@@ -6,22 +6,32 @@ var morgan = require('morgan')
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('combined'));
+app.use(allowCrossDomain);
 
-app.get('/', function(req, res) {
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    next();
+}
+
+app.get('/', function(req, res, next) {
     	res.render('index.html')
 });
 
-app.get('/getRequest1',function(req, res){
+app.get('/getRequest1',function(req, res, next){
 	console.log("get request1")
 	res.send('get request1 from ' + req.rawHeaders)
 });
 
-app.get('/getRequest2',function(req, res){
+app.get('/getRequest2',function(req, res, next){
 	console.log("get request2")
 	res.send('get request2 from ' + req.rawHeaders)
 });
 
-app.get('/getRequestWin',function(req, res){
+app.get('/getRequestWin',function(req, res, next){
 	console.log("Windows get request")
 	res.send('Windows get request: ' + req.rawHeaders)
 });
