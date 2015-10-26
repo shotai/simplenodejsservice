@@ -6,16 +6,14 @@ var morgan = require('morgan')
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('combined'));
-app.use(allowCrossDomain);
 
-//CORS middleware
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-    next();
-}
+
 
 app.get('/', function(req, res, next) {
     	res.render('index.html')
