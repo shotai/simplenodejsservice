@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Test Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+	$("#btn1").on('click', function(){
+		$("#result").html("")
+		$.ajax({
+            		type: "GET",
+            		url: "http://192.168.88.129:8001/getRequestWin",
+            		success: function(result) {
+				$("#result").html(result);
+            		},
+            		error: function(error) {
+                		console.log(error)
+                		$("#result").html("failed");
+            		},
+			timeout: 3000
+        	});
+	});
+	$("#btn2").on('click', function(){
+		$("#result").html("")
+		$.ajax({
+            		type: "GET",
+            		url: "http://192.168.88.129:8001/getRequest1",
+            		success: function(result) {
+				$("#result").html(result);
+            		},
+            		error: function(error) {
+                		console.log(error)
+                		$("#result").html("failed");
+            		},
+			timeout: 3000
+        	});
+	});
+	$("#btn3").on('click', function(){
+		$("#result").html("")
+		$.ajax({
+            		type: "GET",
+            		url: "http://192.168.88.129:8001/getRequest2",
+            		success: function(result) {
+				$("#result").html(result);
+            		},
+            		error: function(error) {
+				console.log(error)
+                		$("#result").html("failed");
+            		},
+			timeout: 3000
+        	});
+	});
+
+    });
+</script>
+</head>
+
+<body>
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-default" id="btn1">RequestToWin</button>
+  <button type="button" class="btn btn-default" id="btn2">RequestToNd1</button>
+  <button type="button" class="btn btn-default" id="btn3">RequestToNd2</button>
+  
+</div>
+<br />
+<div class="alert alert-info" role="alert" id="result"></div>
+</body>
+</html>
