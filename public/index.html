@@ -8,11 +8,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+	
 	$("#btn1").on('click', function(){
 		$("#result").html("")
+		var ip = $("#requestip").val()
 		$.ajax({
             		type: "GET",
-            		url: "http://192.168.88.129:8001/getRequestWin",
+            		url: "http://" + ip + "/getRequestWin",
             		success: function(result) {
 				$("#result").html(result);
             		},
@@ -25,9 +27,10 @@
 	});
 	$("#btn2").on('click', function(){
 		$("#result").html("")
+		var ip = $("#requestip").val()
 		$.ajax({
             		type: "GET",
-            		url: "http://192.168.88.129:8001/getRequest1",
+            		url: "http://" + ip + "/getRequest1",
             		success: function(result) {
 				$("#result").html(result);
             		},
@@ -40,9 +43,10 @@
 	});
 	$("#btn3").on('click', function(){
 		$("#result").html("")
+		var ip = $("#requestip").val()
 		$.ajax({
             		type: "GET",
-            		url: "http://192.168.88.129:8001/getRequest2",
+            		url: "http://" + ip + "/getRequest2",
             		success: function(result) {
 				$("#result").html(result);
             		},
@@ -59,13 +63,15 @@
 </head>
 
 <body>
+Request ip: <input id="requestip" /> 
+<hr />
 <div class="btn-group" role="group">
   <button type="button" class="btn btn-default" id="btn1">RequestToWin</button>
   <button type="button" class="btn btn-default" id="btn2">RequestToNd1</button>
   <button type="button" class="btn btn-default" id="btn3">RequestToNd2</button>
   
 </div>
-<br />
+<hr />
 <div class="alert alert-info" role="alert" id="result"></div>
 </body>
 </html>
