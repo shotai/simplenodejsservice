@@ -31,7 +31,7 @@ app.get('/getRequest2',function(req, res, next){
 
 app.get('/getRequestWin',function(req, res, next){
 	console.log("Windows get request")
-	res.send('Windows get request: ' + req.rawHeaders)
+	res.send('Windows get request: ' + req.ip +" "+ req.rawHeaders)
 });
 
 var httpListener = http.createServer(app);
