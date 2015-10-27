@@ -31,17 +31,17 @@ app.get('/', function(req, res, next) {
 
 app.get('/getRequest1',function(req, res, next){
 	console.log("get request1")
-	res.send('get request1 from ' + req.rawHeaders)
+	res.send('get request1 request ip: ' + req.ip +" Request header: "+ req.rawHeaders)
 });
 
 app.get('/getRequest2',function(req, res, next){
 	console.log("get request2")
-	res.send('get request2 from ' + req.rawHeaders)
+	res.send('get request2 request ip: ' + req.ip +" Request header: "+ req.rawHeaders)
 });
 
 app.get('/getRequestWin',function(req, res, next){
 	console.log("Windows get request")
-	res.send('Windows get request: ' + req.ip +" "+ req.rawHeaders)
+	res.send('Windows get request: request ip: ' + req.ip +" Request header: "+ req.rawHeaders)
 });
 
 var httpListener = http.createServer(app);
